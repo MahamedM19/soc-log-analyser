@@ -20,3 +20,11 @@ print("\nFailed logins by IP:")
 
 for ip, count in failed_ips.items():
     print(ip, ":", count)
+
+print("\nSecurity Alerts:")
+
+for ip, count in failed_ips.items():
+    if count >= 5:
+        print("⚠ Possible brute-force attack detected!")
+        print("Source IP:", ip)
+        print("Failed attempts:", count)
