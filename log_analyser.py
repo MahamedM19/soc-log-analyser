@@ -24,7 +24,15 @@ for ip, count in failed_ips.items():
 print("\nSecurity Alerts:")
 
 for ip, count in failed_ips.items():
+
     if count >= 5:
-        print("⚠ Possible brute-force attack detected!")
-        print("Source IP:", ip)
-        print("Failed attempts:", count)
+        severity = "HIGH"
+    elif count >= 3:
+        severity = "MEDIUM"
+    else:
+        severity = "LOW"
+
+    print("\nPossible suspicious login activity!!!!!")
+    print("Source IP:", ip)
+    print("Failed attempts:", count)
+    print("Severity:", severity)
